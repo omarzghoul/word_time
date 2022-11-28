@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     data = data.isNotEmpty
         ? data
-        : ModalRoute.of(context)?.settings.arguments as Map;
+        : ModalRoute.of(context)!.settings.arguments as Map;
 
     // set background image
     String bgImage = data['isDaytime'] ? 'day.png' : 'night.png';
@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
             child: Column(
               children: <Widget>[
-                FlatButton.icon(
+                ElevatedButton.icon(
                   onPressed: () async {
                     dynamic result =
                         await Navigator.pushNamed(context, '/location');
